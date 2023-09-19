@@ -206,12 +206,8 @@ namespace CollectionLinqAssignment
             //| Grade 11 Top Student: David with GPA 3.8    
             //Also return empty list if the input is null.
 
-            if (students == null)
-                return new List<Student>();
+            throw new NotImplementedException();
 
-            return students.GroupBy(s => s.GradeLevel)
-                           .Select(group => group.OrderByDescending(s => s.GPA).First())
-                           .ToList();
         }
 
         public class School
@@ -252,10 +248,9 @@ namespace CollectionLinqAssignment
             //+-------------------------------------------------------------+
             //Also return empty list if the input is null.
 
-            if (schools == null)
-                return new List<School>();
+            throw new NotImplementedException();
 
-            return schools.Where(s => s.Students.Any(st => st.Grade > 90)).ToList();
+
         }
     }
 }
