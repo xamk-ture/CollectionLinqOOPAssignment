@@ -290,5 +290,48 @@ namespace AssignmentTests
                 }
             };
         }
+
+        public static IEnumerable<object[]> SchoolData()
+        {
+            var highSchoolA = new School
+            {
+                Name = "HighSchool A",
+                Students = new List<Student>
+                {
+                    new Student { Name = "Eva", Grade = 91 },
+                    new Student { Name = "Frank", Grade = 85 }
+                }
+            };
+
+            var highSchoolB = new School
+            {
+                Name = "HighSchool B",
+                Students = new List<Student>
+                {
+                    new Student { Name = "Grace", Grade = 89 }
+                }
+            };
+
+            return new List<object[]>
+            {
+                new object[] { new List<School> { highSchoolA, highSchoolB }, new List<School> { highSchoolA } },
+                new object[] { null, new List<School>() }
+            };
+        }
+
+        [Theory]
+        [MemberData(nameof(SchoolData))]
+        public void TestSchoolsWithTopGrades(List<School> input, List<School> expected)
+        {
+            // Act
+            var result = SchoolsWithTopGrades(input);
+
+            // Assert
+            Assert.Equal(expected.Count, result.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.Equal(expected[i].Name, result[i].Name);
+            }
+        }
     }
 }
