@@ -75,6 +75,15 @@ namespace CollectionLinqAssignment
             public string Category { get; set; }
         }
 
+        public static List<Product> GetFirstThreeItems(List<Product> products)
+        {
+            //Objective: Familiarize with basic LINQ operations.
+            //Task:
+            //Return first 3 items from the list using LINQ.
+
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
         /// Filter electronics that are under 100

@@ -77,6 +77,20 @@ namespace AssignmentTests
             }
         }
 
+        [Fact]
+        public void GetFirstThreeItems_GivenList_ReturnsFirstThreeItems()
+        {
+            var input = new List<Product>();
+            input.Add(new Product { Name = "Phone", Price = 500, Category = "Electronics" });
+            input.Add(new Product { Name = "USB Cable", Price = 10, Category = "Electronics" });
+            input.Add(new Product { Name = "Shirt", Price = 50, Category = "Apparel" });
+            input.Add(new Product { Name = "Hat", Price = 20, Category = "Apparel" });
+
+            var result = Assignments.GetFirstThreeItems(input);
+
+            Assert.Equal(3, result.Count());
+        }
+
         public static IEnumerable<object[]> ProductTestData()
         {
             yield return new object[]
